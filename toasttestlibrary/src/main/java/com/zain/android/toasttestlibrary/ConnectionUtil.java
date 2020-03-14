@@ -22,7 +22,7 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 
 @RequiresApi(api = Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
-class ConnectionUtil implements LifecycleObserver {
+public class ConnectionUtil implements LifecycleObserver {
 
     private static final String TAG = "LOG_TAG";
     private ConnectivityManager mConnectivityMgr;
@@ -50,11 +50,11 @@ class ConnectionUtil implements LifecycleObserver {
         void onAvailable(boolean isAvailable);
     }
 
-    ConnectionUtil() {
+    public  ConnectionUtil() {
 
     }
 
-    ConnectionUtil(Context context) {
+    public  ConnectionUtil(Context context) {
         mContext = context;
         mConnectivityMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         ((AppCompatActivity) mContext).getLifecycle().addObserver(this);
@@ -84,7 +84,7 @@ class ConnectionUtil implements LifecycleObserver {
      * getNetworkInfo(int) is deprecated as of API 23
      * https://developer.android.com/reference/android/net/ConnectivityManager#getNetworkInfo(int)
      */
-    boolean isOnline() {
+    public boolean isOnline() {
 
         mIsConnected = false;
 
@@ -133,7 +133,7 @@ class ConnectionUtil implements LifecycleObserver {
      * <p><p> TRANSPORT_WIFI >> When Wi-Fi is the Active network
      * <p>
      */
-    int getActiveNetwork() {
+    public int getActiveNetwork() {
 
         NetworkInfo activeNetwork = mConnectivityMgr.getActiveNetworkInfo();
         if (activeNetwork != null)
