@@ -50,6 +50,10 @@ class ConnectionUtil implements LifecycleObserver {
         void onAvailable(boolean isAvailable);
     }
 
+    ConnectionUtil() {
+
+    }
+
     ConnectionUtil(Context context) {
         mContext = context;
         mConnectivityMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
